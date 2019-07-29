@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="sunday.mobility.gusers.ui.main.adapter.UserItemViewModel"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@color/white">
+
+        <ImageView
+                android:id="@+id/imgUser"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="70dp"
+                android:onClick="@{() -> viewModel.onUserRowClicked()}"
+                android:src="@{viewModel.mAvatarURL}"
+                android:layout_margin="10dp"
+                android:background="@drawable/ic_github"
+                android:layout_height="70dp"/>
+
+        <TextView
+                android:id="@+id/tvdApptDate"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:gravity="left|center"
+                android:paddingLeft="10dp"
+                android:text="@{viewModel.mLogin}"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgUser"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
